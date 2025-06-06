@@ -1,19 +1,21 @@
-class Library:
-    def __init__(self, book_name, author, pages, price):
-        self.book_name = book_name
-        self.author = author
-        self.pages = pages
-        self.price = price
+void Library::addMember(Member m) {
+    members.push_back(m);
+    cout << "Member added successfully.\n";
+}
 
-    def __str__(self):
-        return f"{self.book_name}\t {self.author}\t {self.pages}\t {self.price}"
+void Library::removeMember(string id) {
+    for (auto it = members.begin(); it != members.end(); ++it) {
+        if (it->id == id) {
+            members.erase(it);
+            cout << "Member removed.\n";
+            return;
+        }
+    }
+    cout << "Member not found.\n";
+}
 
-
-# Driver Code
-if __name__ == "__main__":
-    # Create an array of Library objects
-    lib = []
-
-    # Keep the track of the number of
-    # of books available in the library
-    count = 0
+void Library::listMembers() {
+    cout << "=== Member List ===\n";
+    for (auto& m : members)
+        m.display();
+}
