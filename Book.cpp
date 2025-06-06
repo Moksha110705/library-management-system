@@ -2,7 +2,7 @@ void Library::addBook(Book b) {
     books.push_back(b);
     cout << "Book added successfully.\n";
 }
-
+  
 void Library::removeBook(string isbn) {
     for (auto it = books.begin(); it != books.end(); ++it) {
         if (it->isbn == isbn) {
